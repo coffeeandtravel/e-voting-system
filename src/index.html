@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Kalam&display=swap');
+      </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Online Voting System Using Blockchain</title>
+    <title style="font-family: 'Kalam';">Online Voting System Using Blockchain</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,8 +25,22 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+      body{
+    background-color: rgb(245, 245, 245);
+    background-image: url("back.png");
+}
       tr:nth-child(even) {
         background-color: #D0E4F5;
+      }
+
+      #head{
+        background-color: #337ab7; 
+      }
+      tr:nth-child(1),tr:nth-child(3) {
+        background-color: white;
+      }
+      .th , .mth{
+        background-color: #337ab7;
       }
         td, th{
                 border: 2px solid white;
@@ -49,10 +67,12 @@
     </style>
   </head>
   <body>
-    <div id="container" class="container" style="width: 700px;">
+    <div id="container" class="container" style="width: 98%;">
       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-push-2">
-          <h1 class="text-center" style="font-family: 'Kalam', cursive; font-size: 42px;">Online Voting System Using Blockchain</h1>
+        <div class="col-xs-12 col-sm-8 col-sm-push-2" id="table" style="left:0%; width:100%;">
+          <img src="logo.png"  id="image"  alt="account"/>
+          <h1 class="text-center" style="font-family: 'Chakra Petch', sans-serif;
+           font-size: 42px; font-weight: 600;">Online Voting System Using Blockchain</h1>
           
           <br/>
         </div>
@@ -64,27 +84,27 @@
 
       <div id="content" >
         <table class="table" >
-          <thead style="background-color: #337ab7; color: white; ">
-            <th scope="col" >#</th>
-            <th scope="col">Name</th>
-            <th scope="col">Vote Count</th>
+          <thead  id="head">
+            <th scope="col" class="th" >S No.</th>
+            <th scope="col" class="th">Name</th>
+            <th scope="col" class="th">Vote Count</th>
           </thead>
           <tbody id="contestantsResults">
 
           </tbody>
-          <hr/>
-          <p id="accountAddress" class="text-center"></p>
+          
+          
         </table>
 
         <form onSubmit="App.castVote(); return false;" >
           <div class="form-group" style="display:flex; justify-content: center; align-items:center; ">
-            <label for="contestantsSelect" style="padding-right: 10px; font-family: Chakra Petch, sans-serif; font-size: 18px; margin: 0px; ">Select Contestant - </label>
+            <label for="contestantsSelect" style="padding-right: 10px; font-family: Chakra Petch, sans-serif; font-size: 18px; margin: 10px 0px 0px 0px">Select Contestant - </label>
             <select class="select-control" id="contestantsSelect" style="font-family: Chakra Petch, sans-serif; font-size: 14px; ">
             </select>
           </div>
           <div style="display: flex; margin: 30px auto; ">
-          <button style="margin:auto; justify-content: space-between; align-items:center; font-size: 16px; padding: 15px; border: none;"  type="submit" class="btn btn-primary ansh" >Cast your Vote</button>
-          <a style="margin:auto; justify-content: space-between; align-items:center; font-size: 16px; padding: 15px;" id="myBtn" onclick="dis()" class="btn btn-primary ansh">&nbsp;Final Results&nbsp;</a>
+          <button style="margin:auto; justify-content: space-between; align-items:center; font-size: 16px; padding: 15px; border: none; font-family: 'Chakra Petch', sans-serif;"  type="submit" class="btn btn-primary ansh" >Cast your Vote</button>
+          <a style="margin:auto; justify-content: space-between; align-items:center; font-size: 16px; padding: 15px; font-family: 'Chakra Petch', sans-serif;" id="myBtn" onclick="dis()" class="btn btn-primary ansh">&nbsp;Final Results&nbsp;</a>
          </div>
           
         </form>
@@ -92,25 +112,28 @@
       </div>
 
     </div>
-
+    <footer>
+      <p id="accountAddress" class="text-center"></p>
+    </footer>
+    
    
 
 <!-- Trigger/Open The Modal -->
 
 
 <!-- The Modal -->
-<div id="myModal" class="modal" style="width: 75%; margin:50px auto; padding:auto;">
+<div id="myModal" class="modal" style="width: 75%; margin:50px auto; padding:auto; ">
 
   <!-- Modal content -->
-  <div class="modal-content">
+  <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.5);">
     <span class="close" style="padding: 5px;
     font-size: 50px;">&times;</span>
     <h1 style="text-align: center;">Results</h1>
     <table class="table"  style="width: 80%; margin:25px auto; padding: auto;">
       <thead style="background-color:  #337ab7; color: white; ">
-        <th scope="col" >#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Vote Count</th>
+        <th scope="col" class="mth" >#</th>
+        <th scope="col" class="mth">Name</th>
+        <th scope="col" class="mth">Vote Count</th>
       </thead>
       <tbody id="contestantsR">
 
@@ -119,8 +142,8 @@
       <p id="accountAddress" class="text-center"></p>
     </table>
   </div>
-
 </div>
+
 
 <script>
   document.getElementById ("myBtn").addEventListener ("click", dis, false);

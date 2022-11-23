@@ -60,7 +60,7 @@ render: function() {
     web3.eth.getCoinbase(function(err, account) {
       if (err === null) {
         App.account = account;
-        $("#accountAddress").html("Your Account: " + account);
+        $("#accountAddress").html("<div><strong>Your Account:</strong> " + account + "</div>");
       }
     });
 
@@ -83,10 +83,10 @@ render: function() {
           var voteCount = contestant[2];
 
           // Render contestant Result
-          var contestantTemplate = "<tr style='border-radius:40px;  '><th>" + id + "</th><td>" + name + "</td><td>" + "Click Result" + "</td></tr>"
+          var contestantTemplate = "<tr style='border-radius:40px;  '><th style='text-align: center;'>" + id + "</th><td style='font-size:20px;'>" + name + "</td><td>" + "Check Result" + "</td></tr>"
           contestantsResults.append(contestantTemplate);
 
-          var contestantT = "<tr style='border-radius:40px;  '><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>"
+          var contestantT = "<tr style='border-radius:40px;  '><th  style='text-align: center;'>" + id + "</th><td  style='text-align: center;'>" + name + "</td><td  style='text-align: center;'>" + voteCount + "</td></tr>"
           contestantsR.append(contestantT);
 
           

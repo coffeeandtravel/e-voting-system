@@ -13,10 +13,11 @@ mapping (address => bool) public voters;
 
 uint public contestantsCount;
 constructor() public{
-     addContestant("BJP");
-    addContestant("CONGRESS");
-    addContestant("AAP");
-    addContestant("BSP");
+     addContestant("Bhartiya Janta Party");
+    addContestant("Indian National Congress");
+    addContestant("Aam Aadmi Party");
+    addContestant("Bahujan Samajvadi Party");
+    // addContestant("Samajvadi Party");
    
 
 }
