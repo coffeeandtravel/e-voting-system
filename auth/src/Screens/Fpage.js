@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Fpage() {
+	const navigate = useNavigate();
+
 return (
     <>
 	<div>
@@ -41,7 +44,8 @@ return (
 	<button
 		style={button}
 		onClick={() => {
-		window.location.href="http://localhost:3002/Signin";
+		// window.location.href="http://localhost:3002/Signin";
+		navigate("/Signin");
 		}}
 	>
 		{" "}

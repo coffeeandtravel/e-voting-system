@@ -6,6 +6,7 @@ export default function SignUp() {
 const [username, setUsername] = React.useState("");
 const [email, setEmail] = React.useState("");
 const [password, setPassword] = React.useState("");
+const [radio, setRadio] = React.useState("");
 
 const navigate = useNavigate();
 
@@ -20,7 +21,7 @@ const loadAccounts = async () => {
 };
 
 const signUp = async () => {
-	if (!username || !email || !password) {
+	if (!username || !email || !password || !radio) {
 	alert("please fill all details");
 	return;
 	}
@@ -76,7 +77,18 @@ return (
 		onChange={(e) => setPassword(e.target.value)}
 		placeholder="Password"
 		type="password"
+		
 	/>
+	<label for="radios">Are you 18+? </label>
+	<input
+		style={input}
+		value={radio}
+		onChange={(e) => setRadio(e.target.checked)}
+		type="radio"
+		id="radios"
+		required
+	/>
+
 	<button style={button} onClick={signUp}>
 		{" "}
 		Sign Up
