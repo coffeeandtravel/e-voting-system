@@ -25,9 +25,15 @@ const signUp = async () => {
 	alert("please fill all details");
 	return;
 	}
-	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+	var mailformat = /^\w+([\.-]?\w+)*@medicaps.ac.in$/;
 	if (!email.match(mailformat)) {
 	alert("please enter valid email address");
+	return;
+	}
+
+	var passformat = /^\w{8,20}/;
+	if (!password.match(passformat)) {
+	alert("please enter valid password(minlength : 8)");
 	return;
 	}
 	try {
@@ -71,14 +77,16 @@ return (
 		placeholder="Email"
 		type="text"
 	/>
+	
 	<input
 		style={input}
 		value={password}
 		onChange={(e) => setPassword(e.target.value)}
 		placeholder="Password"
 		type="password"
-		
+		// minLength={8}
 	/>
+	
 	<label for="radios">Are you 18+? </label>
 	<input
 		style={input}
